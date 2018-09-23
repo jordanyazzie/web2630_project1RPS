@@ -12,16 +12,16 @@
     <div class="small-6 columns">
       <h1 class="text-center">PLAYER</h1>
       <div class="wins">
-        <div class="wins text-center" style="background-color: green; margin: 0; color: white;">
-
+        <div class="wins text-center" style="background-color: green; margin: 0; color: white;" v-bind:style="{width: userWidth}">
+          {{userWins}}
         </div>
       </div>
     </div>
     <div class="small-6 columns">
       <h1 class="text-center">COMPUTER</h1>
       <div class="wins">
-        <div class="wins text-center" style="background-color: green; margin: 0; color: white;">
-
+        <div class="wins text-center" style="background-color: green; margin: 0; color: white;" v-bind:style="{width: cpuWidth}">
+          {{cpuWins}}
         </div>
       </div>
     </div>
@@ -33,15 +33,15 @@
   </section>
   <section class="row controls" v-show="!isShown">
     <div class="small-12 columns">
-      <button id="rock" @click="runGame">ROCK</button>
-      <button id="paper" @click="runGame">PAPER</button>
-      <button id="scissors" @click="runGame">SCISSORS</button>
+      <button id="rock" @click="userRock">ROCK</button>
+      <button id="paper" @click="userPaper">PAPER</button>
+      <button id="scissors" @click="userScissors">SCISSORS</button>
       <button id="restart" @click= "restartGame">RESTART</button>
     </div>
   </section>
   <section class="row log" v-show="!isShown">
     <div class="small-12 columns">
-      <ul>
+      <ul v-bind:style="{backgroundColor: resultColor}">
         <li>
           {{results}}
         </li>
